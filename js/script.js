@@ -1,10 +1,10 @@
 document.getElementById("formcadastro").addEventListener("submit", function (event) {
 
-    event.preventDefault();
+    event.preventDefault();//
     var nome = document.getElementById('nome').value;
     var categoria = document.getElementById('categoria').value;
     var data = document.getElementById('data').value;
-    var valor = document.getElementById('valor').value;
+    var valor = parseFloat(document.getElementById('valor').value);
 
     var cadastrar = { nome: nome, categoria: categoria, data: data, valor: valor };
     var lista_receita = JSON.parse(localStorage.getItem('lista_receita')) || [];
@@ -50,7 +50,7 @@ document.getElementById("formcadastro").addEventListener("submit", function (eve
         }
     }
     
-    function excluir_transacao(index) {
+    function excluir_transacao(index) {//Funciona o botão de excluir
         const lista_receita = JSON.parse(localStorage.getItem('lista_receita')) || [];
         lista_receita.splice(index, 1);
         localStorage.setItem('lista_receita', JSON.stringify(lista_receita));
